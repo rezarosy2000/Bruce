@@ -14,12 +14,13 @@
 // Section 1. Call up the right driver file and any options for it
 //
 // ##################################################################################
-#include "TFT_Drivers/ST7735_Defines.h"
+#include "TFT_Drivers/ILI9486_Defines.h"
 // Only define one driver, the other ones must be commented out
-//#define ILI9341_DRIVER
-#define ST7735_DRIVER  // Define additional parameters below for this display
-//#define ILI9163_DRIVER     // Define additional parameters below for this
-// display #define S6D02A1_DRIVER #define RPI_ILI9486_DRIVER // 20MHz maximum
+// #define ILI9341_DRIVER
+// #define ST7735_DRIVER  // Define additional parameters below for this display
+// #define ILI9163_DRIVER     // Define additional parameters below for this
+// display #define S6D02A1_DRIVER
+#define RPI_ILI9486_DRIVER // 20MHz maximum
 // SPI #define HX8357D_DRIVER #define ILI9481_DRIVER #define ILI9486_DRIVER
 //#define ILI9488_DRIVER     // WARNING: Do not connect ILI9488 display SDO to
 // MISO if other devices share the SPI bus (TFT SDO does NOT tristate when CS is
@@ -28,7 +29,7 @@
 // Minimal configuration option, define additional parameters below for this
 // display #define R61581_DRIVER #define RM68140_DRIVER
 
-#define TFT_DRIVER 0x7735
+#define TFT_DRIVER 0x9486
 // Some displays support SPI reads via the MISO pin, other displays have a
 // single bi-directional SDA pin and the library will try to read this via the
 // MOSI line. To use the SDA line for reading data from the TFT uncomment the
@@ -51,10 +52,10 @@
 
 // For ST7789, ST7735 and ILI9163 ONLY, define the pixel width and height in
 // portrait orientation
-#define TFT_WIDTH 80
+// #define TFT_WIDTH 80
 // #define TFT_WIDTH  128
 // #define TFT_WIDTH  240 // ST7789 240 x 240 and 240 x 320
-#define TFT_HEIGHT 160
+// #define TFT_HEIGHT 160
 // #define TFT_HEIGHT 128
 // #define TFT_HEIGHT 240 // ST7789 240 x 240
 // #define TFT_HEIGHT 320 // ST7789 240 x 320
@@ -168,19 +169,24 @@
 // For ESP32 Dev board (only tested with ILI9341 display)
 // The hardware SPI can be mapped to any pins
 
-//#define TFT_MISO 19
-//#define TFT_MOSI 23
-//#define TFT_SCLK 18
-//#define TFT_CS   15  // Chip select control pin
-//#define TFT_DC    2  // Data Command control pin
-//#define TFT_RST   4  // Reset pin (could connect to RST pin)
-//#define TFT_RST  -1  // Set TFT_RST to -1 if display RESET is connected to
+// #define TFT_MISO 19
+// #define TFT_MOSI 23
+// #define TFT_SCLK 18
+// #define TFT_CS   15  // Chip select control pin
+// #define TFT_DC    2  // Data Command control pin
+// #define TFT_RST   4  // Reset pin (could connect to RST pin)
+// #define TFT_RST  -1  // Set TFT_RST to -1 if display RESET is connected to
 // ESP32 board RST
 
 //#define TFT_BL   32  // LED back-light (only for ST7789 with backlight control
 // pin)
-
-//#define TOUCH_CS 21     // Chip select pin (T_CS) of touch screen
+#define TFT_MISO 12
+#define TFT_MOSI 13
+#define TFT_SCLK 14
+#define TFT_CS   15  // Chip select control pin
+#define TFT_DC    2  // Data Command control pin
+#define TFT_RST  -1  // Reset pin (could connect to RST pin)
+#define TOUCH_CS 33     // Chip select pin (T_CS) of touch screen
 
 //#define TFT_WR 22    // Write strobe for modified Raspberry Pi TFT only
 
@@ -193,12 +199,12 @@
 //#define TFT_RST  33  // Reset pin (could connect to Arduino RESET pin)
 //#define TFT_BL   32  // LED back-light (required for M5Stack)
 
-#define TFT_MOSI 15
-#define TFT_SCLK 13
-#define TFT_CS   5   // Chip select line for TFT display on Shield
-#define TFT_DC   23  // Data/command line for TFT on Shield
-#define TFT_RST  18  // Reset line for TFT is handled by seesaw!
-#define TOUCH_CS -1 
+// #define TFT_MOSI 15
+// #define TFT_SCLK 13
+// #define TFT_CS   5   // Chip select line for TFT display on Shield
+// #define TFT_DC   23  // Data/command line for TFT on Shield
+// #define TFT_RST  18  // Reset line for TFT is handled by seesaw!
+// #define TOUCH_CS -1
 
 // ######       EDIT THE PINs BELOW TO SUIT YOUR ESP32 PARALLEL TFT SETUP ######
 
